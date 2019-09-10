@@ -1,28 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-      <!-- jQuery -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <!-- Firebase Core JavaScript Link -->
-      <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
-      <!-- Specific Firebase products we want (Database) -->
-      <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-database.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Firebase Core JavaScript Link -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+    <!-- Specific Firebase products we want (Database) -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-database.js"></script>
 </head>
+
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
 
+        <div class="row headerRow">
+            <p class="headerText">Train</p>
+        </div>
+
+        <div class="row scheduleRow">
+            <div class="card" style="width: 100%; padding-bottom: 25px">
+                <div class="card-header">Current Train Schedule: </div>
+                <div class="row titleRow trainInfoRow">
+                    <div class="col-md-3">Train name</div>
+                    <div class="col-md-3">Destination</div>
+                    <div class="col-md-2">Frequency (min)</div>
+                    <div class="col-md-2">Next arrival</div>
+                    <div class="col-md-2">Minutes away</div>
+                </div>
+                <div class="row trainInfoRow">
+                    <div class="col-md-3">Coaster</div>
+                    <div class="col-md-3">Torrey Pines</div>
+                    <div class="col-md-2">60</div>
+                    <div class="col-md-2">05:00 pm</div>
+                    <div class="col-md-2">109</div>
+                </div>
+                <div class="row trainInfoRow">
+                    <div class="col-md-3">Coaster</div>
+                    <div class="col-md-3">Torrey Pines</div>
+                    <div class="col-md-2">60</div>
+                    <div class="col-md-2">05:00 pm</div>
+                    <div class="col-md-2">109</div>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="assets/javascript/app.js"></script>
+
+        <div class="row addRow">
+            <div class="card" style="width: 100%; margin-top: 2%; padding-bottom: 15px; margin-bottom: 25px;">
+                <div class="card-header">Add train: </div>
+                <div class="row">
+                    <form class="inputContent" style="margin-top: 20px;">
+                        <div class="form-group">
+                            <label for="inputName" class="inputLabel">Train name: </label>
+                            <input type="text" class="form-control" id="inputName">
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <form class="inputContent">
+                        <div class="form-group">
+                            <label for="inputDestination" class="inputLabel">Destination: </label>
+                            <input type="text" class="form-control" id="inputDestination">
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <form class="inputContent">
+                        <div class="form-group">
+                            <label for="inputTime" class="inputLabel">First train time (HH:mm): </label>
+                            <input type="text" class="form-control" id="inputTime">
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <form class="inputContent">
+                        <div class="form-group">
+                            <label for="inputFrequency" class="inputLabel">Frequency (min): </label>
+                            <input type="text" class="form-control" id="inputFrequency">
+                        </div>
+                    </form>
+                </div>
+                <div class="row buttonRow">
+                        <div class="col-md-3">
+                            <button id="submitButton">Submit</button>
+                        </div>
+                    </div>
+            </div>
+            
+        </div>
+        <script src="assets/javascript/app.js"></script>
 </body>
+
 </html>
