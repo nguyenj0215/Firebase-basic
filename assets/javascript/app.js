@@ -54,8 +54,6 @@ $(document).ready(function () {
 
     console.log(snapshot.val());
 
-    console.log(snapshot.val().name);
-    console.log(snapshot.val().destination);
     var trainFreq = snapshot.val().frequency;
     var trainTime = snapshot.val().time;
 
@@ -81,21 +79,23 @@ $(document).ready(function () {
     frequencyDiv.addClass("col-md-2")
     newDiv.append(frequencyDiv)
 
-    //Need to understand moment section better
-
     var trainFreq;
 
     var trainTime = 0
 
+    //Referencing user input on first train time
     var firstTimeClock = moment(trainTime, "HH:mm")
     console.log(firstTimeClock)
 
     // Getting current time in HH:mm
-    var currentTime = moment()
-    console.log(currentTime.format("HH:mm"))
+    var currentTime = moment().format("HH:mm")
+    console.log(currentTime)
+
+    //Displaying current time on page
+    $("#clockDisplay").text(currentTime)
 
     //Difference in time between first train and current time in minutes
-    var differenceTime  = moment().diff(moment(firstTimeClock), "minutes")
+    var differenceTime = moment().diff(moment(firstTimeClock), "minutes")
     console.log(differenceTime)
 
     //Time apart 
