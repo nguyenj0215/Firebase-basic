@@ -10,12 +10,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <!-- Firebase Core JavaScript Link -->
     <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+
     <!-- Specific Firebase products we want (Database) -->
     <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-database.js"></script>
+
 </head>
 
 <body>
@@ -25,8 +29,9 @@
             <p class="headerText">Train</p>
         </div>
 
+        <!--Box 1 container with preloaded trains and will append new train info-->
         <div class="row scheduleRow">
-            <div class="card" style="width: 100%; padding-bottom: 25px">
+            <div class="card" id="trainDisplay" style="width: 100%; padding-bottom: 25px">
                 <div class="card-header">Current Train Schedule: </div>
                 <div class="row titleRow trainInfoRow">
                     <div class="col-md-3">Train name</div>
@@ -35,23 +40,18 @@
                     <div class="col-md-2">Next arrival</div>
                     <div class="col-md-2">Minutes away</div>
                 </div>
+                
                 <div class="row trainInfoRow">
                     <div class="col-md-3">Coaster</div>
                     <div class="col-md-3">Torrey Pines</div>
                     <div class="col-md-2">60</div>
-                    <div class="col-md-2">05:00 pm</div>
-                    <div class="col-md-2">109</div>
-                </div>
-                <div class="row trainInfoRow">
-                    <div class="col-md-3">Coaster</div>
-                    <div class="col-md-3">Torrey Pines</div>
-                    <div class="col-md-2">60</div>
-                    <div class="col-md-2">05:00 pm</div>
+                    <div class="col-md-2">05:00</div>
                     <div class="col-md-2">109</div>
                 </div>
             </div>
         </div>
 
+        <!--Box 2 container with inputs for new train information upon clicking of submit button-->
         <div class="row addRow">
             <div class="card" style="width: 100%; margin-top: 2%; padding-bottom: 15px; margin-bottom: 25px;">
                 <div class="card-header">Add train: </div>
@@ -95,6 +95,7 @@
             </div>
             
         </div>
+
         <script src="assets/javascript/app.js"></script>
 </body>
 
