@@ -89,7 +89,7 @@ $(document).ready(function () {
     console.log(firstTimeClock)
 
     // Getting current time in HH:mm
-    var currentTime = moment().format("HH:mm")
+    var currentTime = moment().format("HH:mm A")
     console.log(currentTime)
 
     //Displaying current time on page
@@ -112,7 +112,7 @@ $(document).ready(function () {
     console.log(moment(nextTrain).format("HH:mm"))
 
     var arrivalDiv = $("<div>")
-    arrivalDiv.text(moment(nextTrain).format("HH:mm"));
+    arrivalDiv.text(moment(nextTrain).format("HH:mm A"));
     arrivalDiv.addClass("col-md-2")
     newDiv.append(arrivalDiv)
 
