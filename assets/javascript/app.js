@@ -41,6 +41,12 @@ $(document).ready(function () {
       frequency: frequency,
     });
 
+    // Clear text boxes at end of submit click function
+    $("#inputName").val("")
+    $("#inputDestination").val("")
+    $("#inputTime").val("")
+    $("#inputFrequency").val("")
+
   });
 
   //Snapshot of value changes
@@ -50,11 +56,11 @@ $(document).ready(function () {
 
     console.log(snapshot.val().name);
     console.log(snapshot.val().destination);
-    console.log(snapshot.val().frequency);
-    console.log(snapshot.val().time);
-    console.log(minutes)
+    var trainFreq = snapshot.val().frequency;
+    var trainTime = snapshot.val().time;
 
     //Creation of new row div for all new train info, will be last to be appended
+    //Seems like only most recent addition is being saved in database
     var newDiv = $("<div>")
     newDiv.addClass("row")
     newDiv.addClass("trainInfoRow")
@@ -75,21 +81,44 @@ $(document).ready(function () {
     frequencyDiv.addClass("col-md-2")
     newDiv.append(frequencyDiv)
 
-    var timeDiv = $("<div>")
-    timeDiv.text(snapshot.val().time);
-    timeDiv.addClass("col-md-2")
-    newDiv.append(timeDiv)
+    //Need to understand moment section better
 
-    //Converting time to minutes for arrival time calculations
-    var hm = $("#inputTime").val().trim();
-    //Removing the colon from the time 
-    var a = hm.split(':');
-    var minutes = (+a[0]) * 60 + (+a[1]) * 60 + (+a[2]);
+    var trainFreq;
+
+    var trainTime = 0
+
+    var firstTimeClock = moment(trainTime, "HH:mm")
+    console.log(firstTimeClock)
+
+    // Getting current time in HH:mm
+    var currentTime = moment()
+    console.log(currentTime.format("HH:mm"))
+
+    //Difference in time between first train and current time in minutes
+    var differenceTime  = moment().diff(moment(firstTimeClock), "minutes")
+    console.log(differenceTime)
+
+    //Time apart 
+    var timeRemainder = differenceTime % trainFreq
+    console.log(timeRemainder)
+
+    //Minutes until next train arrives
+    var minutesRemaining = trainFreq - timeRemainder
+    console.log(minutesRemaining)
+
+    //Actualy time next train will arrive based on current time and minutes until arrival
+    var nextTrain = moment().add(minutesRemaining, "minutes")
+    console.log(moment(nextTrain).format("HH:mm"))
 
     var arrivalDiv = $("<div>")
-    arrivalDiv.text(minutes)
+    arrivalDiv.text(moment(nextTrain).format("HH:mm"));
     arrivalDiv.addClass("col-md-2")
     newDiv.append(arrivalDiv)
+
+    var minutesDiv = $("<div>")
+    minutesDiv.text(minutesRemaining);
+    minutesDiv.addClass("col-md-2")
+    newDiv.append(minutesDiv)
 
     $("#trainDisplay").append(newDiv)
 
