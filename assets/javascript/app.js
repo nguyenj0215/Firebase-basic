@@ -35,7 +35,7 @@ $(document).ready(function () {
     frequency = $("#inputFrequency").val().trim();
 
     // Change what is saved in firebase
-    database.ref().set({
+    database.ref().push({
       name: name,
       destination: destination,
       time: time,
@@ -51,7 +51,7 @@ $(document).ready(function () {
   });
 
   //Snapshot of value changes
-  database.ref().on("value", function (snapshot) {
+  database.ref().on("child_added", function (snapshot) {
 
     console.log(snapshot.val());
 
