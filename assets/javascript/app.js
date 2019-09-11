@@ -2,13 +2,13 @@ $(document).ready(function () {
 
   //Firebase personal config info
   var firebaseConfig = {
-    apiKey: "AIzaSyBsr181qc6LPHcN34B-GvE4pE584IqNvnQ",
-    authDomain: "cbc-activity.firebaseapp.com",
-    databaseURL: "https://cbc-activity.firebaseio.com",
-    projectId: "cbc-activity",
+    apiKey: "AIzaSyB_bpYimZft6D0ZxvRSswDtD3nB2d8MAyQ",
+    authDomain: "train-hw-156c7.firebaseapp.com",
+    databaseURL: "https://train-hw-156c7.firebaseio.com",
+    projectId: "train-hw-156c7",
     storageBucket: "",
-    messagingSenderId: "32775955131",
-    appId: "1:32775955131:web:a4bedc0d7f1f2289ecbf9e"
+    messagingSenderId: "306529028614",
+    appId: "1:306529028614:web:569f53e53ca8c7f8099187"
   };
 
   //Initializing firebase 
@@ -28,6 +28,7 @@ $(document).ready(function () {
     // Don't refresh the page!
     event.preventDefault();
 
+    // Getting values from input boxes
     name = $("#inputName").val().trim();
     destination = $("#inputDestination").val().trim();
     time = $("#inputTime").val().trim();
