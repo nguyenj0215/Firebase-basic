@@ -34,18 +34,6 @@ body, html {
     background-color: rgb(66, 66, 190);
     font-weight: bold;
 }
-.titleRow {
-    margin-top: 10px;
-}
-.trainInfoRow {
-    margin-left: 15px;
-    margin-right: 15px;
-    padding: 7px;
-    border-bottom: solid 2px grey;
-}
-.titleRow {
-    font-weight: bold;
-}
 .inputLabel {
     font-weight: bold;
 }

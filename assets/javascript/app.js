@@ -57,30 +57,8 @@ $(document).ready(function () {
 
     var trainFreq = snapshot.val().frequency;
     var trainTime = snapshot.val().time;
-
-    //Creation of new row div for all new train info, will be last to be appended
-    //Seems like only most recent addition is being saved in database
-    var newDiv = $("<div>")
-    newDiv.addClass("row")
-    newDiv.addClass("trainInfoRow")
-
-    //New train information divs
-    var nameDiv = $("<div>")
-    nameDiv.text(snapshot.val().name);
-    nameDiv.addClass("col-md-3")
-    newDiv.append(nameDiv)
-
-    var destinationDiv = $("<div>")
-    destinationDiv.text(snapshot.val().destination);
-    destinationDiv.addClass("col-md-3")
-    newDiv.append(destinationDiv)
-
-    var frequencyDiv = $("<div>")
-    frequencyDiv.text(snapshot.val().frequency);
-    frequencyDiv.addClass("col-md-2")
-    newDiv.append(frequencyDiv)
-
-    var trainFreq;
+    var trainName = snapshot.val().name;
+    var trainDest = snapshot.val().destination
 
     var trainTime = 0
 
@@ -111,17 +89,18 @@ $(document).ready(function () {
     var nextTrain = moment().add(minutesRemaining, "minutes")
     console.log(moment(nextTrain).format("HH:mm"))
 
-    var arrivalDiv = $("<div>")
-    arrivalDiv.text(moment(nextTrain).format("HH:mm A"));
-    arrivalDiv.addClass("col-md-2")
-    newDiv.append(arrivalDiv)
+    var trainArrival = moment(nextTrain).format("HH:mm A")
 
-    var minutesDiv = $("<div>")
-    minutesDiv.text(minutesRemaining);
-    minutesDiv.addClass("col-md-2")
-    newDiv.append(minutesDiv)
+    var newRow = $("<tr>").append(
+      $("<td>").text(trainName),
+      $("<td>").text(trainDest),
+      $("<td>").text(trainFreq),
+      $("<td>").text(trainArrival),
+      $("<td>").text(minutesRemaining)
+    );
 
-    $("#trainDisplay").append(newDiv)
+    //Appending all of new div to html of page
+    $("#trainDisplay").append(newRow)
 
   },
 
