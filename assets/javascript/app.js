@@ -60,10 +60,8 @@ $(document).ready(function () {
     var trainName = snapshot.val().name;
     var trainDest = snapshot.val().destination
 
-    var trainTime = 0
-
     //Referencing user input on first train time
-    var firstTimeClock = moment(trainTime, "HH:mm")
+    var firstTimeClock = moment(trainTime, "HH:mm").subtract(1, "years")
     console.log(firstTimeClock)
 
     // Getting current time in HH:mm
